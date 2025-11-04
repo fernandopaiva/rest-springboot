@@ -1,10 +1,10 @@
-package br.com.erudio.unitetests.mapper.mocks;
+package com.ferpateste.unittest.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.erudio.data.dto.PersonDTO;
-import br.com.erudio.model.Person;
+import com.ferpateste.dto.PersonDTO;
+import com.ferpateste.model.Person;
 
 public class MockPerson {
 
@@ -35,21 +35,19 @@ public class MockPerson {
     
     public Person mockEntity(Integer number) {
         Person person = new Person();
-        person.setAddress("Address Test" + number);
-        person.setFirstName("First Name Test" + number);
-        person.setGender(((number % 2)==0) ? "Male" : "Female");
-        person.setId(number.longValue());
-        person.setLastName("Last Name Test" + number);
+        person.setId((long)number);
+        person.setNome("Person: " + number);
+        person.setEmail("eu@" + number + ".com");
+        person.setCpf("xxx.xxx.xxx-" + number);
         return person;
     }
 
     public PersonDTO mockDTO(Integer number) {
         PersonDTO person = new PersonDTO();
-        person.setAddress("Address Test" + number);
-        person.setFirstName("First Name Test" + number);
-        person.setGender(((number % 2)==0) ? "Male" : "Female");
-        person.setId(number.longValue());
-        person.setLastName("Last Name Test" + number);
+        person.setId((long)number);
+        person.setNome("Person: " + number);
+        person.setEmail("eu@" + number + ".com");
+        person.setCpf("xxx.xxx.xxx-" + number);
         return person;
     }
 

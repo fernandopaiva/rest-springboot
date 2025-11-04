@@ -1,29 +1,20 @@
-package com.ferpateste.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+package com.ferpateste.dto;
 
 import java.io.Serializable;
 
-@Entity
-public class Person implements Serializable {
+public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
     private String email;
     private String cpf;
 
-    public Person() {
+    public PersonDTO() {
     }
 
-    public Person(String nome, String email, String cpf) {
+    public PersonDTO(String nome, String email, String cpf) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
