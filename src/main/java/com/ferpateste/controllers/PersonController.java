@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
+import java.util.Date;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/person")
 public class PersonController {
@@ -21,7 +23,9 @@ public class PersonController {
     //@RequestMapping(value = "/findById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @GetMapping(value = "/findById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public PersonDTO findById(@PathVariable("id") Long id){
-        return pService.findById(id);
+        PersonDTO dto = pService.findById(id);
+        dto.setBirthDay(new Date());
+        return dto;
     }
 
     //http://localhost:8080/person/findAll/

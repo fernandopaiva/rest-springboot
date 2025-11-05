@@ -1,15 +1,31 @@
 package com.ferpateste.dto;
 
-import java.io.Serializable;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonProperty;
+//import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
+import java.util.Date;
+
+//@JsonPropertyOrder({"id", "nome", "email", "cpf"})
 public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private long id;
+    //@JsonProperty("name")
     private String nome;
+
+    //@JsonProperty("e-mail")
     private String email;
+
+    //@JsonIgnore
     private String cpf;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date birthDay;
 
     public PersonDTO() {
     }
@@ -52,5 +68,11 @@ public class PersonDTO implements Serializable {
         this.cpf = cpf;
     }
 
+    public Date getBirthDay() {
+        return birthDay;
+    }
 
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
+    }
 }
